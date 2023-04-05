@@ -65,7 +65,9 @@ public class DoublyLinkedList {
         if (location < 0 || location >= size) {
             throw new IllegalArgumentException("Location is out of bounds");
         }
+        Album deletedAlbum;
         if (location == 0) {
+            deletedAlbum = head.getData();
             if (head == tail) {
                 tail = null;
             }
@@ -74,6 +76,7 @@ public class DoublyLinkedList {
                 head.setPrev(null);
             }
         } else if (location == size - 1) {
+            deletedAlbum = tail.getData();
             tail = tail.getPrev();
             tail.setNext(null);
         } else {
@@ -81,12 +84,14 @@ public class DoublyLinkedList {
             for (int i = 0; i < location; i++) {
                 curr = curr.getNext();
             }
+            deletedAlbum = curr.getData();
             curr.getPrev().setNext(curr.getNext());
             curr.getNext().setPrev(curr.getPrev());
         }
         size--;
-        return null;
+        return deletedAlbum;
     }
+
 
     public int getIndex(Album data) {
         Node curr = head;

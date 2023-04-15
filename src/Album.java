@@ -49,7 +49,7 @@ public class Album implements Comparable<Album> {
 
     @Override
     public String toString() {
-        return String.format("%d: %d -- %s", id, numSongs, Arrays.toString(artists));
+        return String.format("ID: %d -- %d [%s]", id, numSongs, Arrays.toString(artists));
     }
 
     @Override

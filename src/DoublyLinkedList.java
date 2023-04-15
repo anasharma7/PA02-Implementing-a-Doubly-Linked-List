@@ -144,4 +144,16 @@ public class DoublyLinkedList {
         tail = cur;
         return head;
     }
+
+    public DoublyLinkedList partition(Album data) {
+        DoublyLinkedList newList = new DoublyLinkedList();
+        Node curr = head;
+        while (curr != null) {
+            if (curr.getData().compareTo(data) >= 0) {
+                newList.append(curr.getData());
+            }
+            curr = curr.getNext();
+        }
+        return newList;
+    }
 }
